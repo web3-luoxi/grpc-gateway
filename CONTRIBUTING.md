@@ -56,7 +56,7 @@ To make a release, follow these steps:
    for an example.
 1. Tag the release on `master`.
    1. The release can be created using the command line, or also through GitHub's [releases
-      UI](https://github.com/grpc-ecosystem/grpc-gateway/releases/new).
+      UI](https://github.com/web3-luoxi/grpc-gateway/releases/new).
    1. If you create a release using the web UI you can publish it as a draft and have it
       reviewed by another maintainer.
    1. Update the release description. Try to include some of the highlights of this release,

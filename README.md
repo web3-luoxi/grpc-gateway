@@ -6,9 +6,9 @@ gRPC to JSON proxy generator following the gRPC HTTP spec
 <a href="https://circleci.com/gh/grpc-ecosystem/grpc-gateway"><img src="https://img.shields.io/circleci/build/github/grpc-ecosystem/grpc-gateway?color=379c9c&logo=circleci&logoColor=ffffff&style=flat-square"/></a>
 <a href="https://codecov.io/gh/grpc-ecosystem/grpc-gateway"><img src="https://img.shields.io/codecov/c/github/grpc-ecosystem/grpc-gateway?color=379c9c&logo=codecov&logoColor=ffffff&style=flat-square"/></a>
 <a href="https://app.slack.com/client/T029RQSE6/CBATURP1D"><img src="https://img.shields.io/badge/slack-grpc--gateway-379c9c?logo=slack&logoColor=ffffff&style=flat-square"/></a>
-<a href="https://github.com/grpc-ecosystem/grpc-gateway/blob/master/LICENSE.txt"><img src="https://img.shields.io/github/license/grpc-ecosystem/grpc-gateway?color=379c9c&style=flat-square"/></a>
-<a href="https://github.com/grpc-ecosystem/grpc-gateway/releases"><img src="https://img.shields.io/github/v/release/grpc-ecosystem/grpc-gateway?color=379c9c&logoColor=ffffff&style=flat-square"/></a>
-<a href="https://github.com/grpc-ecosystem/grpc-gateway/stargazers"><img src="https://img.shields.io/github/stars/grpc-ecosystem/grpc-gateway?color=379c9c&style=flat-square"/></a>
+<a href="https://github.com/web3-luoxi/grpc-gateway/blob/master/LICENSE.txt"><img src="https://img.shields.io/github/license/grpc-ecosystem/grpc-gateway?color=379c9c&style=flat-square"/></a>
+<a href="https://github.com/web3-luoxi/grpc-gateway/releases"><img src="https://img.shields.io/github/v/release/grpc-ecosystem/grpc-gateway?color=379c9c&logoColor=ffffff&style=flat-square"/></a>
+<a href="https://github.com/web3-luoxi/grpc-gateway/stargazers"><img src="https://img.shields.io/github/stars/grpc-ecosystem/grpc-gateway?color=379c9c&style=flat-square"/></a>
 </div>
 
 ## About
@@ -68,8 +68,8 @@ to track the versions of the following executable packages:
 package tools
 
 import (
-    _ "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway"
-    _ "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2"
+    _ "github.com/web3-luoxi/grpc-gateway/v2/protoc-gen-grpc-gateway"
+    _ "github.com/web3-luoxi/grpc-gateway/v2/protoc-gen-openapiv2"
     _ "google.golang.org/grpc/cmd/protoc-gen-go-grpc"
     _ "google.golang.org/protobuf/cmd/protoc-gen-go"
 )
@@ -79,8 +79,8 @@ Run `go mod tidy` to resolve the versions. Install by running
 
 ```sh
 $ go install \
-    github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway \
-    github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2 \
+    github.com/web3-luoxi/grpc-gateway/v2/protoc-gen-grpc-gateway \
+    github.com/web3-luoxi/grpc-gateway/v2/protoc-gen-openapiv2 \
     google.golang.org/protobuf/cmd/protoc-gen-go \
     google.golang.org/grpc/cmd/protoc-gen-go-grpc
 ```
@@ -339,7 +339,7 @@ Alternatively, see the section on remotely managed plugin versions below.
      "net/http"
 
      "github.com/golang/glog"
-     "github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+     "github.com/web3-luoxi/grpc-gateway/v2/runtime"
      "google.golang.org/grpc"
      "google.golang.org/grpc/credentials/insecure"
 
@@ -473,7 +473,7 @@ This requires no local installation of any plugins. Be careful to use the same
 version of the generator as the runtime library, i.e. if using `v2.6.0-1`, run
 
 ```shell
-$ go get github.com/grpc-ecosystem/grpc-gateway/v2@v2.6.0
+$ go get github.com/web3-luoxi/grpc-gateway/v2@v2.6.0
 ```
 
 To get the same version of the runtime in your `go.mod`.
@@ -573,7 +573,7 @@ But patches are welcome.
 
 ## Mapping gRPC to HTTP
 
-- [How gRPC error codes map to HTTP status codes in the response](https://github.com/grpc-ecosystem/grpc-gateway/blob/master/runtime/errors.go#L15).
+- [How gRPC error codes map to HTTP status codes in the response](https://github.com/web3-luoxi/grpc-gateway/blob/master/runtime/errors.go#L15).
 - HTTP request source IP is added as `X-Forwarded-For` gRPC request header.
 - HTTP request host is added as `X-Forwarded-Host` gRPC request header.
 - HTTP `Authorization` header is added as `authorization` gRPC request header.
@@ -590,9 +590,9 @@ But patches are welcome.
 
 ## Contribution
 
-See [CONTRIBUTING.md](http://github.com/grpc-ecosystem/grpc-gateway/blob/master/CONTRIBUTING.md).
+See [CONTRIBUTING.md](http://github.com/web3-luoxi/grpc-gateway/blob/master/CONTRIBUTING.md).
 
 ## License
 
 gRPC-Gateway is licensed under the BSD 3-Clause License.
-See [LICENSE.txt](https://github.com/grpc-ecosystem/grpc-gateway/blob/master/LICENSE.txt) for more details.
+See [LICENSE.txt](https://github.com/web3-luoxi/grpc-gateway/blob/master/LICENSE.txt) for more details.
