@@ -279,7 +279,7 @@ func nestedQueryParams(message *descriptor.Message, field *descriptor.Field, pre
 			strEnums := listEnumNames(reg, enum)
 			numEnums := listEnumNumbers(reg, enum)
 			for i := 0; i < len(numEnums); i++ {
-				enumExtra += fmt.Sprintf(" %s=%s", strEnums[i], numEnums[i])
+				enumExtra += fmt.Sprintf(" %s=%s", numEnums[i], strEnums[i])
 			}
 			if items != nil { // array
 				param.Items = &openapiItemsObject{
@@ -749,12 +749,21 @@ func renderEnumerationsAsDefinition(enums enumMap, d openapiDefinitionsObject, r
 				Default: defaultValue,
 			},
 		}
+		enumExtra := "\n"
+		strEnums := listEnumNames(reg, enum)
+		numEnums := listEnumNumbers(reg, enum)
+		for i := 0; i < len(numEnums); i++ {
+			enumExtra += fmt.Sprintf(" %s=%s", numEnums[i], strEnums[i])
+		}
+
 		if reg.GetEnumsAsInts() {
 			enumSchemaObject.Type = "integer"
 			enumSchemaObject.Format = "int32"
 			enumSchemaObject.Default = "0"
 			enumSchemaObject.Enum = listEnumNumbers(reg, enum)
+			enumComments += enumExtra
 		}
+
 		if err := updateOpenAPIDataFromComments(reg, &enumSchemaObject, enum, enumComments, false); err != nil {
 			panic(err)
 		}
