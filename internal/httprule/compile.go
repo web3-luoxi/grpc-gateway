@@ -1,7 +1,7 @@
 package httprule
 
 import (
-	"github.com/grpc-ecosystem/grpc-gateway/v2/utilities"
+	"github.com/web3-luoxi/grpc-gateway/v2/utilities"
 )
 
 const (
