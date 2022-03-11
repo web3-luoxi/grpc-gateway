@@ -269,10 +269,17 @@ func nestedQueryParams(message *descriptor.Message, field *descriptor.Field, pre
 
 		param.Name = prefix + reg.FieldName(field)
 
+		enumExtra := ""
 		if isEnum {
 			enum, err := reg.LookupEnum("", fieldType)
 			if err != nil {
 				return nil, fmt.Errorf("unknown enum type %s", fieldType)
+			}
+			enumExtra = "\n"
+			strEnums := listEnumNames(reg, enum)
+			numEnums := listEnumNumbers(reg, enum)
+			for i := 0; i < len(numEnums); i++ {
+				enumExtra += fmt.Sprintf(" %s=%s", strEnums[i], numEnums[i])
 			}
 			if items != nil { // array
 				param.Items = &openapiItemsObject{
@@ -299,6 +306,7 @@ func nestedQueryParams(message *descriptor.Message, field *descriptor.Field, pre
 			if valueComments != "" {
 				param.Description = strings.TrimLeft(param.Description+"\n\n "+valueComments, "\n")
 			}
+			param.Description += enumExtra
 		}
 		return []openapiParameterObject{param}, nil
 	}
