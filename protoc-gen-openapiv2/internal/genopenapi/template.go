@@ -755,13 +755,13 @@ func renderEnumerationsAsDefinition(enums enumMap, d openapiDefinitionsObject, r
 		for i := 0; i < len(numEnums); i++ {
 			enumExtra += fmt.Sprintf(" %s=%s", numEnums[i], strEnums[i])
 		}
+		enumComments += enumExtra
 
 		if reg.GetEnumsAsInts() {
 			enumSchemaObject.Type = "integer"
 			enumSchemaObject.Format = "int32"
 			enumSchemaObject.Default = "0"
 			enumSchemaObject.Enum = listEnumNumbers(reg, enum)
-			enumComments += enumExtra
 		}
 
 		if err := updateOpenAPIDataFromComments(reg, &enumSchemaObject, enum, enumComments, false); err != nil {
