@@ -78,6 +78,9 @@ type Registry struct {
 	// enumsAsInts render enum as integer, as opposed to string
 	enumsAsInts bool
 
+	// annotate enum type with int
+	enumAnnotaion bool
+
 	// omitEnumDefaultValue omits default value of enum
 	omitEnumDefaultValue bool
 
@@ -559,6 +562,14 @@ func (r *Registry) SetEnumsAsInts(enumsAsInts bool) {
 // GetEnumsAsInts returns enumsAsInts
 func (r *Registry) GetEnumsAsInts() bool {
 	return r.enumsAsInts
+}
+
+func (r *Registry) GetEnumAnnotation() bool {
+	return r.enumAnnotaion
+}
+
+func (r *Registry) SetEnumAnnotation(enumAnnotataion bool) {
+	r.enumAnnotaion = enumAnnotataion
 }
 
 // SetOmitEnumDefaultValue sets omitEnumDefaultValue
