@@ -306,7 +306,9 @@ func nestedQueryParams(message *descriptor.Message, field *descriptor.Field, pre
 			if valueComments != "" {
 				param.Description = strings.TrimLeft(param.Description+"\n\n "+valueComments, "\n")
 			}
-			param.Description += enumExtra
+			if reg.GetEnumAnnotation() {
+				param.Description += enumExtra
+			}
 		}
 		return []openapiParameterObject{param}, nil
 	}
@@ -749,14 +751,15 @@ func renderEnumerationsAsDefinition(enums enumMap, d openapiDefinitionsObject, r
 				Default: defaultValue,
 			},
 		}
-		enumExtra := "\n"
-		strEnums := listEnumNames(reg, enum)
-		numEnums := listEnumNumbers(reg, enum)
-		for i := 0; i < len(numEnums); i++ {
-			enumExtra += fmt.Sprintf(" %s=%s", numEnums[i], strEnums[i])
+		if reg.GetEnumAnnotation() {
+			enumExtra := "\n"
+			strEnums := listEnumNames(reg, enum)
+			numEnums := listEnumNumbers(reg, enum)
+			for i := 0; i < len(numEnums); i++ {
+				enumExtra += fmt.Sprintf(" %s=%s", numEnums[i], strEnums[i])
+			}
+			enumComments += enumExtra
 		}
-		enumComments += enumExtra
-
 		if reg.GetEnumsAsInts() {
 			enumSchemaObject.Type = "integer"
 			enumSchemaObject.Format = "int32"
